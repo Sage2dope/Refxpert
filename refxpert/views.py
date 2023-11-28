@@ -23,7 +23,9 @@ def registerPage(request):
             messages.success(request, 'Account was created for ' + user)
             return redirect('login')
         else:
-            messages.error(request, 'Error')
+            for field, errors in form.errors.items():
+                for error in errors:
+                    messages.error(request, f"{field}: {error}")
     context = {'form': form}
     return render(request, 'refxpert/registration/register.html', context)
 

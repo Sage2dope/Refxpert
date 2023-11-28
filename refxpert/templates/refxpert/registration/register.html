@@ -2,12 +2,8 @@
 
 
 {% block content %}
-   <!--
-  Heads up! 👋
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-  Plugins:
-    - @tailwindcss/forms
--->
 <p>
 <section className="bg-gray-100">
             <div class="lg:grid lg:min-h-screen lg:grid-cols-12">
@@ -63,13 +59,13 @@
   
             <div class="col-span-6 sm:col-span-3">
               <label
-                for="{{ form.lastname.id_for_label }}"
+                for="{{ form.last_name.id_for_label }}"
                 class="block text-sm font-medium text-gray-700"
               >
                 Last Name
               </label>
   
-              {{ form.lastname }}
+              {{ form.last_name }}
             </div>
   
             <div class="col-span-6">
@@ -130,7 +126,11 @@
             </div>
   
             <div class="col-span-6 sm:flex sm:items-center sm:gap-4">
-              
+              <script>
+                {%for msg in messages%}
+                swal('{{msg}}');
+                {% endfor %}
+              </script>
                
               <button type="submit"
                 class="inline-block shrink-0 rounded-md border border-blue-950 bg-blue-950 px-12 py-3 text-sm font-medium text-white transition hover:bg-transparent hover:text-blue-950 focus:outline-none focus:ring active:text-blue-950"

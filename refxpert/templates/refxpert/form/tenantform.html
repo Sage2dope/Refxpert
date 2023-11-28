@@ -136,7 +136,7 @@
          </div>
 
           <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt class="text-sm font-medium leading-6 text-gray-900">Property Address</dt>
+            <dt class="text-sm font-medium leading-6 text-gray-900">Applicant Address</dt>
               <label for="property_address" class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-950 focus-within:ring-1 focus-within:ring-blue-600" >
                   <input
                   type="address"
@@ -174,7 +174,7 @@
 
                 
         <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-          <dt class="text-sm font-medium leading-6 text-gray-900">House Address</dt>
+          <dt class="text-sm font-medium leading-6 text-gray-900">Property Address</dt>
             <label for="house_address" class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-950 focus-within:ring-1 focus-within:ring-blue-600" >
                 <input
                 type="address"
@@ -193,19 +193,20 @@
          </div>
 
         <div class="px-4 py-4 sm:px-0">
-          <h3 class="text-base font-bold leading-7 text-gray-900">Notification</h3>
+          <h3 class="text-base font-bold leading-7 text-gray-900">Employment Details</h3>
           <div class="flex items-center">
               <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Email Notification</p>
               <input type="checkbox" id="email_tenant" name="email_tenant" class="ml-4">
           </div>
           <div class="flex items-center">
               <p class="mt-1 max-w-2xl text-sm leading-6 text-gray-500">
-                Allow tenant to fill in guarantor contact details
-                Our system allows you to carry out a check on both tenant and guarantor. 
-                If this tenant has already indicated that they want to use a guarantor to guarantee their rental amount, 
-                we can ask the tenant to provide contact details for the guarantor whilst they are completing their own details.</p>
+                Allow tenant to fill in guarantor contact details  
+                </p>
               <input type="checkbox" id="guarantor_fill" name="guarantor_fill" class="ml-4">
           </div>
+          <p class="mt-1 max-w-2xl text-sm font-bold leading-6 text-gray-500 font italic">
+            (This is not required if tenant already has an employment condition.)
+          </p>
         </div>
     
             <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -225,6 +226,87 @@
                   {% endif %}
                 </div>
             
+                <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+                  <dt class="text-sm font-medium leading-6 text-gray-900">Employer</dt>
+                    <label for="Employer" class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-950 focus-within:ring-1 focus-within:ring-blue-9500" >
+                        <input
+                        type="text" 
+                        name="employer"
+                        value="{{ formz.employer.value|default:'' }}" 
+                        id="employer"
+                        placeholder="Employer"
+                        class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                        />
+                           {% if formz.employer.errors %}
+                                <div class="text-red-500 mt-2 text-sm">
+                                    {{ formz.employer.errors }}
+                                </div>
+                            {% endif %}
+                    </label>
+              </div>
+              
+            
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <dt class="text-sm font-medium leading-6 text-gray-900">Employer Address</dt>
+                <label for="employer_address" class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-950 focus-within:ring-1 focus-within:ring-blue-9500" >
+                    <input
+                    type="text" 
+                    name="employer_address"
+                    value="{{ formz.employer_address.value|default:'' }}" 
+                    id="employer_address"
+                    placeholder="Employer"
+                    class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                    />
+                       {% if formz.employer_address.errors %}
+                            <div class="text-red-500 mt-2 text-sm">
+                                {{ formz.employer_address.errors }}
+                            </div>
+                        {% endif %}
+                </label>
+          </div>
+
+
+
+          <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+            <dt required class="text-sm font-medium leading-6 text-gray-900">Employer Phone</dt>
+              <label for="employer_phone" class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-950 focus-within:ring-1 focus-within:ring-blue-9500" >
+                  <input
+                  type="Phone" 
+                  name="employer_phone" 
+                  value="{{ formz.employer_phone.value|default:'' }}" 
+                  id="id_employer_phone"
+                  placeholder="Phone Number"
+                  class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                  />
+              </label>
+              {% if formz.employer_phone.errors %}
+                    <div class="text-red-500 mt-2 text-sm">
+                        {{ formz.employer_phone.errors }}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <dt class="text-sm font-medium leading-6 text-gray-900">Job Title</dt>
+                <label for="job_title" class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-950 focus-within:ring-1 focus-within:ring-blue-9500" >
+                    <input
+                    type="text" 
+                    name="job_title"
+                    value="{{ formz.job_title.value|default:'' }}" 
+                    id="job_title"
+                    placeholder="job_title"
+                    class="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+                    />
+                       {% if formz.job_title.errors %}
+                            <div class="text-red-500 mt-2 text-sm">
+                                {{ formz.job_title.errors }}
+                            </div>
+                        {% endif %}
+                </label>
+          </div>
+
+
+
                 <div required class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
                     <dt class="text-sm font-medium leading-6 text-gray-900">Annual Income *</dt>
                       <label for="annual_income" class="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-blue-950 focus-within:ring-1 focus-within:ring-blue-9500" >

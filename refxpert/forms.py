@@ -9,15 +9,15 @@ from django.forms.widgets import SelectDateWidget
 
 class CreateUserForm(UserCreationForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={
-        'class': 'peer h-8 w-full bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm',
+        'class': 'peer h-8 w-full bg-transparent p-0 placeholder-transparent  focus:outline-none focus:ring-0 sm:text-sm',
         'placeholder': 'Email'
     }))
-    lastname = forms.CharField(required=True)
+    last_name = forms.CharField(required=True)
 
 
     class Meta:
         model = User
-        fields = ["username", 'lastname', 'email', 'password1', 'password2']
+        fields = ["username", 'last_name', 'email', 'password1', 'password2']
 
 
 
