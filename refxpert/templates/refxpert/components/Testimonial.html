@@ -45,6 +45,9 @@
 
   keenSliderPreviousDesktop.addEventListener('click', () => keenSlider.prev())
   keenSliderNextDesktop.addEventListener('click', () => keenSlider.next())
+
+  // Add this to make the slider change automatically every 3 seconds
+  setInterval(() => keenSlider.next(), 3000)
 </script>
 
 <section class="bg-gray-50">
