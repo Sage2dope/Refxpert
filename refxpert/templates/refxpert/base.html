@@ -79,7 +79,8 @@
                       
           
                     <div class="block md:hidden">
-                      <button
+                      <button 
+                        id="dropdown-button"
                         class="rounded bg-blue-950 p-2 text-gray-50 transition hover:text-gray-600/75"
                       >
                         <svg
@@ -98,6 +99,31 @@
                         </svg>
                       </button>
                     </div>
+                    <div
+                          class="absolute end-0 z-10 mt-2 w-56 rounded-md border border-gray-100 bg-white shadow-lg"
+                          role="menu"
+                        >
+                      <div id="dropdown-menu" class="hidden md:hidden">
+                        <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                        <a href="/about" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-0">About us</a>
+                        <a href="/contact" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-1">Contact</a>
+                        <a href="/tenancy_post" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1" id="menu-item-2">Services</a>
+                        <form method="POST" action="/logout" role="none">
+                          <button type="submit" class="text-gray-700 block w-full px-4 py-2 text-left text-sm" role="menuitem" tabindex="-1" id="menu-item-3">Logout</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                    <script>
+                      document.getElementById('dropdown-button').addEventListener('click', function() {
+                        var dropdownMenu = document.getElementById('dropdown-menu');
+                        if (dropdownMenu.classList.contains('hidden')) {
+                          dropdownMenu.classList.remove('hidden');
+                        } else {
+                          dropdownMenu.classList.add('hidden');
+                        }
+                      });
+                    </script>
                   </div>
                 </div>
               </div>
