@@ -24,6 +24,7 @@
   
         <div class="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
           <form action="https://formspree.io/f/mrgwnavk" method= "POST" class="space-y-4">
+            {% csrf_token %}
             <input type="hidden" name="User name" value="{{ request.user.username }}" required>
             <div>
               <label class="sr-only" for="name">Name</label>
