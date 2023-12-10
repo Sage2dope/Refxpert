@@ -150,9 +150,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'dopesage47@gmail.com'
-EMAIL_HOST_PASSWORD = 'svudzliarofsebok'
-
+EMAIL_HOST_USER = 'admin@refxpert.com'
+EMAIL_HOST_PASSWORD = 'jpsibzmjhyshugmk'
 
 
 SESSION_COOKIE_AGE = 300
