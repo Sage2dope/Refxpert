@@ -152,8 +152,10 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'dopesage47@gmail.com'
 EMAIL_HOST_PASSWORD = 'svudzliarofsebok'
 
-SESSION_COOKIE_AGE = 300
 
+
+SESSION_COOKIE_AGE = 300
+SESSION_COOKIE_DOMAIN = '.refxpert.com'
 SESSION_SAVE_EVERY_REQUEST = True
 
 CSRF_TRUSTED_ORIGINS = ['www.refxpert.com', 'refxpert.com', 'refxpert-6397a715f1a3.herokuapp.com']
