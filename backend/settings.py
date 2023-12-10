@@ -155,3 +155,5 @@ EMAIL_HOST_PASSWORD = 'svudzliarofsebok'
 SESSION_COOKIE_AGE = 300
 
 SESSION_SAVE_EVERY_REQUEST = True
+
+CSRF_TRUSTED_ORIGINS = ['www.refxpert.com', 'refxpert.com', 'refxpert-6397a715f1a3.herokuapp.com']
