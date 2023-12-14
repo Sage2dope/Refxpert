@@ -1,8 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 from django_countries.fields import CountryField
 from ckeditor.fields import RichTextField
-# Create your models here.
 
 
     
@@ -76,9 +76,9 @@ class BlogPost(models.Model):
     def __str__(self):
         return str(self.title)
 
-
-
-
+    def get_absolute_url(self):
+        return reverse("tenancy_post_view", kwargs={"pk": self.pk})
+    
 
 
 
