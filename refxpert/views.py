@@ -10,7 +10,18 @@ from .models import *
 
 # Create your views here.
 def index(request):
-    return render(request, "refxpert/index.html")
+    # Get the latest post from each category
+    latest_tenancy_post = BlogPost.objects.filter(category='Tenancy').order_by('-date_created').first()
+    latest_legal_post = BlogPost.objects.filter(category='Legal').order_by('-date_created').first()
+    latest_landlord_post = BlogPost.objects.filter(category='Landlords').order_by('-date_created').first()
+
+    # Pass the latest posts to the template
+    context = {
+        'latest_tenancy_post': latest_tenancy_post,
+        'latest_legal_post': latest_legal_post,
+        'latest_landlord_post': latest_landlord_post,
+    }
+    return render(request, 'refxpert/index.html', context)
 
 # Registration Page
 def registerPage(request):
@@ -250,15 +261,16 @@ def delete_property(request, pk):
 
 #Basically my blogpost functions 
 
-def tenancy_post(request):
-    tenancy_posts = BlogPost.objects.filter(category='Tenancy').order_by('-date_created')
-    latest_post = tenancy_posts.first() if tenancy_posts else None
-    return render(request, 'refxpert/blogpost/tenancy_post.html', {'latest_post': latest_post, 'posts': tenancy_posts[1:]})
 
 
 def tenancy_post_view(request, pk):
     post = get_object_or_404(BlogPost, pk=pk)
     return render(request, 'refxpert/components/tenancy_post_view.html', {'post': post})
+
+def tenancy_post(request):
+    tenancy_posts = BlogPost.objects.filter(category='Tenancy').order_by('-date_created')
+    latest_post = tenancy_posts.first() if tenancy_posts else None
+    return render(request, 'refxpert/blogpost/tenancy_post.html', {'latest_post': latest_post, 'posts': tenancy_posts[1:]})
 
 
 def legal_post(request):
@@ -272,3 +284,12 @@ def property_post(request):
     property_posts = BlogPost.objects.filter(category='Landlords').order_by('-date_created')
     latest_post = property_posts.first() if property_posts else None
     return render(request, 'refxpert/blogpost/property_post.html', {'latest_post': latest_post, 'posts': property_posts[1:]})
+
+
+
+#def test_view(request):
+    tenancy_posts = BlogPost.objects.filter(category='Tenancy').order_by('-date_created')
+    latest_post = tenancy_posts.first() if tenancy_posts else None
+    print(latest_post)  # Add this line
+    return render(request, 'refxpert/components/test.html', {'latest_post': latest_post, 'posts': tenancy_posts[1:]})
+    

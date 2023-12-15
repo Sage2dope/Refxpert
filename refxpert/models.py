@@ -69,6 +69,7 @@ class BlogPost(models.Model):
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
     title = models.CharField(max_length=200, null=True, blank=True)
     content = RichTextField(null=True, blank=True)
+    image = models.ImageField(upload_to='blog_images/', null=True, blank=True)
     status = models.CharField(max_length=200, null=True, blank=True, choices=STATUS)
     category = models.CharField(max_length=200, null=True, blank=True, choices=CATEGORIES)
     date_created = models.DateTimeField(auto_now_add=True, null=True)

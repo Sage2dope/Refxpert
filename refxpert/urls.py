@@ -42,6 +42,7 @@ urlpatterns = [
     
     path('tenancy_post_view/<int:pk>/', views.tenancy_post_view, name='tenancy_post_view'),
     path('tenancy_post/', views.tenancy_post, name='tenancy_post'),
+    #path('test/', views.test_view, name='test'),
 
     path('legal_post/', views.legal_post, name='legal_post'),
     path('property_post/', views.property_post, name='property_post'),
