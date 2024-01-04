@@ -171,3 +171,20 @@ class TenantForm(models.Model):
 
     def __str__(self):
         return str(self.first_name + ' ' + self.last_name)
+    
+
+
+class Job(models.Model):
+    JOBSTATUS = (
+        ('Open', 'Open'),
+        ('Closed', 'Closed'),
+    )
+        
+    title = models.CharField(max_length=200)
+    description = RichTextField(null=True, blank=True)
+    location = models.CharField(max_length=200)
+    salary = models.CharField(null=True, blank=True)
+    status = models.CharField(max_length=200, null=True, blank=True, choices=JOBSTATUS)
+
+    def __str__(self):
+        return str(self.title)

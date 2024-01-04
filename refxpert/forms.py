@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django.forms import ModelForm
-from .models import HouseApplication, LegalService, TenantForm, BlogPost
+from .models import HouseApplication, LegalService, TenantForm, BlogPost, Job
 from django.forms.widgets import SelectDateWidget
 
 
@@ -55,3 +55,9 @@ class TenantForms(forms.ModelForm):
         super(TenantForms, self).__init__(*args, **kwargs)
         self.fields['gender'].choices = [('', 'Please select')] + list(self.fields['gender'].choices)
         self.fields['employment'].choices = [('', 'Please select')] + list(self.fields['employment'].choices)
+
+
+class ApplicationForm(ModelForm):
+    class Meta:
+        model = Job
+        fields = '__all__'

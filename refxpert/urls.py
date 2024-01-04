@@ -28,6 +28,9 @@ urlpatterns = [
     path("emailtenant/", views.email_tenants, name="emailtenant"),
 
     path("contact/", views.contact, name="contact"),
+    path("careers/", views.careers, name="careers"),
+    path('apply/<int:job_id>/', views.apply, name='apply'),
+    path('job/<int:job_id>/', views.job_detail, name='job_detail'),
     path('about/', TemplateView.as_view(template_name="refxpert/components/about.html"), name='about'),
 
     path("reset_password/", auth_views.PasswordResetView.as_view(template_name="refxpert/password/password_reset.html"), name="reset_password"),

@@ -161,6 +161,40 @@ def contact(request):
 
 
 
+#Career page function 
+def careers(request):
+    # Fetch all job postings from the database
+    jobs = Job.objects.all()
+
+    # Pass the job postings to the template
+    context = {'jobs': jobs}
+    return render(request, 'refxpert/careers/careers.html', context)
+
+
+#Application form function
+def apply(request, job_id):
+    job = get_object_or_404(Job, pk=job_id)
+
+    if request.method == 'POST':
+        form = ApplicationForm(request.POST)
+        if form.is_valid():
+            application = form.save(commit=False)
+            application.job = job
+            application.save()
+            messages.success(request, 'Application Successfully Submitted')
+            return redirect('careers')  # replace 'success' with the name of your success view
+    else:
+        form = ApplicationForm()
+
+    return render(request, 'refxpert/careers/apply.html', {'form': form, 'job': job})
+
+
+#Job Detail function
+def job_detail(request, job_id):
+    job = get_object_or_404(Job, pk=job_id)
+    return render(request, 'refxpert/careers/job_detail.html', {'job': job})
+
+
 #The tenant reference page where the user - clicks START REFERENCE BUTTON
 @authenticated_user
 @login_required(login_url='login')  
