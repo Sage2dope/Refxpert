@@ -14,6 +14,7 @@ from pathlib import Path
 from django.conf import settings
 import dj_database_url
 import os
+from dotenv import load_dotenv
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -90,11 +91,11 @@ WSGI_APPLICATION = "backend.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
+load_dotenv ()
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://pdycfcwxyrgwjo:6f0781d104bf385bff255036f5fd10d81363e93bdf8d96254496ce5915253156@ec2-34-241-82-91.eu-west-1.compute.amazonaws.com:5432/d2ve1limqqhch2')
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
