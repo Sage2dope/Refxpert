@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-aag1q^^n1enk#7e%heeqwbg_%**si_^&+%6jh!d(ld3qd#g(+h"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['refxpert-6397a715f1a3.herokuapp.com', '127.0.0.1', "www.refxpert.com", "refxpert.com"]
 CSRF_TRUSTED_ORIGINS = ['https://www.refxpert.com', 'https://refxpert.com']
@@ -92,7 +92,7 @@ WSGI_APPLICATION = "backend.wsgi.application"
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default='postgres://oooenajkelawmv:f37d93c7777f9a3ce390226685c06925677b386ce3ea4084ed4fa497c0db8120@ec2-34-252-169-131.eu-west-1.compute.amazonaws.com:5432/d35v3t0doo56f8')
+    'default': dj_database_url.config(default='postgres://pdycfcwxyrgwjo:6f0781d104bf385bff255036f5fd10d81363e93bdf8d96254496ce5915253156@ec2-34-241-82-91.eu-west-1.compute.amazonaws.com:5432/d2ve1limqqhch2')
 }
 
 # Password validation
